@@ -1,0 +1,42 @@
+body {
+     font-family: 'Montserrat', sans-serif;
+}
+
+/* SAQs */
+.divCont {
+     border: 1px solid;
+     border-radius: .3rem;
+     /* padding: .9rem; */
+     background-color: whitesmoke;
+}
+
+.questionName {
+     background-color: #d6d6d6;
+     border-radius: .3rem;
+     border-bottom-right-radius: 0rem;
+     border-bottom-left-radius: 0rem;
+}
+
+
+/* Eligibility */
+.desc {
+     padding: 1rem 2rem;
+     margin: 0;
+}
+
+.goBtn {
+     border: none;
+     background: none;
+     font-size: 2rem;
+}
+
+.tableHead {
+     padding: 1rem 0rem;
+}
+
+table,
+tr,
+td,
+th {
+     border: 1px solid black;
+}

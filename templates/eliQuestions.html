@@ -1,0 +1,26 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}PCI DSS{% endblock %}
+
+{% block content %}
+<form method="POST" action="/process_answers">
+    <h1 class="fs-4 mb-5">Merchant certifies eligibility to complete this Self-Assessment Questionnaire because, for
+        this payment channel:</h1>
+    <div>
+        {% for question in question %}
+        <div class="mb-3 divCont">
+            <div class="fs-5 m-0 p-3 questionName d-flex">
+                <div>
+                    <input type="checkbox" name="answers[]" value="True" id="answer_true_{{ loop.index }}">
+                </div>
+                <div class="ps-2">
+                    <p>{{ question }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
