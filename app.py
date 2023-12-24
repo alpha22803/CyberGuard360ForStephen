@@ -5,18 +5,15 @@ from data.elibilityQues import eliA, eliB, eliC, eliP2
 
 app = Flask(__name__, static_url_path='/static')
 
-
 @app.route('/saqa')
 def question():
     return render_template("question.html", saqa=saqa)
-
 
 @app.route('/')
 def home():
     return render_template("home.html")
 
-
-@app.route('/', methods=['POST'])
+@app.route('/questiontype', methods=['POST'])
 def handle_button_click():
     global eliQue
     saq_type = request.form.get('saqType')
@@ -28,14 +25,12 @@ def handle_button_click():
         eliQue = eliC
     elif saq_type == 'P2':
         eliQue = eliP2
-    print("helo")
-    return redirect('/eliQuestions')
-
+    return redirect(url_for('eliQuestions'))
 
 @app.route("/eliQuestions")
 def eliQuestions():
+    print(eliQue)
     return render_template("eliQuestions.html", question=eliQue)
-
 
 @app.route('/process_answers', methods=['POST'])
 def process_answers():
@@ -43,13 +38,6 @@ def process_answers():
     true_false_values = [answer == "True" for answer in selected_answers]
     print("All are same:", len(eliQue) == len(true_false_values))
     return "Answers received and processed."
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    # snip
-    return render_template('404.html'), 404
-
 
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port=3000)

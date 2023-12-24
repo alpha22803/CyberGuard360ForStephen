@@ -8,14 +8,14 @@
     <h1 class="fs-4 mb-5">Merchant certifies eligibility to complete this Self-Assessment Questionnaire because, for
         this payment channel:</h1>
     <div>
-        {% for question in question %}
+        {% for q in question %}
         <div class="mb-3 divCont">
             <div class="fs-5 m-0 p-3 questionName d-flex">
                 <div>
                     <input type="checkbox" name="answers[]" value="True" id="answer_true_{{ loop.index }}">
                 </div>
                 <div class="ps-2">
-                    <p>{{ question }}</p>
+                    <p>{{ q }}</p>
                 </div>
             </div>
         </div>

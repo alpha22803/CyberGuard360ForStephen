@@ -26,7 +26,7 @@
             </td>
             <td>
                 <div class="d-flex justify-content-center">
-                    <button class="goBtn" onclick="sendResponse('A')">
+                    <button type="button" class="goBtn" onclick="sendResponse('A')">
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
@@ -90,10 +90,11 @@
     function sendResponse(saqType) {
         $.ajax({
             type: 'POST',
-            url: '/',
+            url: '/questiontype',
             data: { saqType: saqType },
             success: function (response) {
                 // Handle the response from the backend
+                $('*').html(response);
                 console.log('Response from the backend:', response);
             },
             error: function (error) {
