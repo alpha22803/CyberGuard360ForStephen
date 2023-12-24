@@ -29,7 +29,7 @@ def handle_button_click():
 
 @app.route("/eliQuestions")
 def eliQuestions():
-    print(eliQue)
+    # print(eliQue)
     return render_template("eliQuestions.html", question=eliQue)
 
 @app.route('/process_answers', methods=['POST'])
